@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maa's Inspiration Dashboard</title><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#3D1A6E">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#F3EBDD;font-family:system-ui,Segoe UI,Arial,sans-serif;color:#2b2233}
+header{background:#3D1A6E;color:#fff;padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header img{height:48px;background:#fff;border-radius:8px;padding:3px}header h1{font-size:1.3rem;margin:0}header p{margin:2px 0 0;font-size:.85rem;color:#E8D9B0}
+.sp{flex:1}.btn{background:#C9A227;color:#2b2233;border:0;border-radius:8px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:.95rem;text-decoration:none}
+.btn.p{background:#5B2A86;color:#fff}main{max-width:1200px;margin:auto;padding:18px}
+h2{color:#3D1A6E;margin:22px 0 10px;font-size:1.2rem;border-left:5px solid #C9A227;padding-left:10px}
+.g{display:grid;gap:14px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}
+.c{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 3px #0002}.c h3{margin:0 0 6px;color:#3D1A6E;font-size:1.05rem}
+.bar{height:12px;background:#ece4f3;border-radius:6px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:#5B2A86}
+.big{font-size:2.4rem;font-weight:800;color:#3D1A6E}.muted{color:#6b6175;font-size:.88rem}
+.tag{display:inline-block;border-radius:20px;padding:3px 10px;font-size:.78rem;font-weight:700}.tg{background:#2E7D4F;color:#fff}.ty{background:#C9A227}.tp{background:#5B2A86;color:#fff}
+ul.l{list-style:none;padding:0;margin:0}ul.l li{padding:8px 0;border-bottom:1px solid #eee;font-size:.92rem}ul.l li b{color:#3D1A6E}
+.tile{display:block;text-decoration:none;color:#3D1A6E;font-weight:700;text-align:center;padding:18px 10px}.tile span{display:block;font-size:1.6rem}.tile small{display:block;color:#6b6175;font-weight:400}
+.date{display:flex;gap:12px;align-items:center}.date .d{background:#2E7D4F;color:#fff;border-radius:8px;padding:6px 10px;text-align:center;font-weight:800;min-width:58px}
+#help{display:none}.prog{border-top:6px solid #5B2A86}.prog.g{border-top-color:#2E7D4F}.prog.y{border-top-color:#C9A227}
+@media(max-width:900px){.g4{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr}.g2{grid-template-columns:1fr}}
+@media(max-width:480px){.g4{grid-template-columns:1fr 1fr}header h1{font-size:1.1rem}.big{font-size:2rem}}
+</style></head><body>
+<header><img src="icon-192.png" alt="Maa's Inspiration logo"><div><h1>Maa's Inspiration Project Dashboard</h1><p>Aslam Hemani, Director · <span id="upd">Loading…</span></p></div><div class="sp"></div>
+<button class="btn" id="inst">⬇ Install as desktop app</button><button class="btn p" onclick="load()">↻ Refresh</button></header>
+<main>
+<div class="c" id="help"><h3>How to install this as an app</h3><ul class="l">
+<li><b>Chrome or Edge (Windows/Mac):</b> click the install icon (a little screen with an arrow) at the right end of the address bar, or open the ⋮ / … menu and choose "Install Maa's Dashboard" (Edge: Apps → Install this site as an app).</li>
+<li><b>Safari on Mac:</b> File menu → Add to Dock.</li><li><b>iPhone / iPad:</b> tap Share → Add to Home Screen.</li><li><b>Android:</b> ⋮ menu → Install app.</li></ul></div>
+<h2>Overall progress</h2>
+<div class="g g2"><div class="c"><div class="big" id="ov">–%</div><div class="bar"><i id="ovb" style="width:0"></i></div><div class="muted" id="ovt">Reading the checklist…</div></div>
+<div class="c"><h3>Coming up</h3><ul class="l">
+<li class="date"><div class="d">Oct 13</div>TikTok Video B posts</li><li class="date"><div class="d">Oct 22</div>Approve the next batch of posts</li><li class="date"><div class="d">Oct 26</div>Launch week starts</li></ul></div></div>
+<h2>The four areas</h2><div class="g g4" id="areas"></div>
+<h2>Needs Aslam <span class="tag ty" id="nc">0</span></h2><div class="c"><ul class="l" id="mine"><li class="muted">Loading…</li></ul></div>
+<h2>Our programs</h2><div class="g g3">
+<div class="c prog"><h3>🍲 Maa's Meals</h3><span class="tag tg">Running</span><p>Saturdays, 10 AM – 12 PM<br>2,200 fresh meals every Saturday<br>About 50 volunteers</p><p class="muted">1445 MacArthur Dr, Suite 104, Carrollton</p></div>
+<div class="c prog y"><h3>🏡 Maa's Place</h3><span class="tag ty">Opening soon</span><p>Free senior center<br>Monday – Thursday, 10 AM – 2 PM</p><p class="muted">2700 Old Denton Rd, Suite 102, Carrollton</p></div>
+<div class="c prog g"><h3>🌟 Blooming Star Village</h3><span class="tag tp">Coming soon</span><p>Day program for children with special needs, ages 5–17<br>Monday – Thursday, 9 AM – 2 PM</p><p class="muted">2700 Old Denton Rd, Suite 102, Carrollton</p></div></div>
+<h2>Quick links</h2><div class="g g4">
+<a class="c tile" target="_blank" href="https://aslamhemani-eng.github.io/maas-place-preview/site-preview/"><span>🖥️</span>Website preview<small>New site to review</small></a>
+<a class="c tile" target="_blank" href="https://maasinspiration.org"><span>🌐</span>Live website<small>maasinspiration.org</small></a>
+<a class="c tile" target="_blank" href="https://maasinspiration.org/donate.html"><span>💛</span>Donate page<small>Live site</small></a>
+<a class="c tile" target="_blank" href="https://aslamhemani-eng.github.io/maas-checklist/"><span>✅</span>Checklist app<small>Tick off tasks</small></a>
+<a class="c tile" target="_blank" href="https://aslamhemani-eng.github.io/maas-place-preview/edit.html"><span>✏️</span>Edit page<small>Change website text</small></a>
+<a class="c tile" target="_blank" href="https://docs.google.com/spreadsheets/d/11lfSJppjr9b-XdOFaWvzOsCqtLPPnAwIW4sfW-ke5U4/edit"><span>📊</span>Google Sheet<small>Checklist data</small></a>
+<a class="c tile" target="_blank" href="https://www.tiktok.com/@maasinspiration"><span>🎵</span>TikTok</a>
+<a class="c tile" target="_blank" href="https://www.instagram.com/maasinspiration/"><span>📷</span>Instagram</a>
+<a class="c tile" target="_blank" href="https://www.facebook.com/maasinspiration"><span>👍</span>Facebook</a>
+<a class="c tile" href="#up"><span>📦</span>GoDaddy upload<small>Steps below</small></a></div>
+<h2 id="up">Uploading the new website to GoDaddy</h2><div class="c"><ol>
+<li>Sign in at godaddy.com → My Products → Web Hosting → <b>cPanel Admin</b>.</li>
+<li>Open <b>File Manager</b> → go to <b>public_html</b>.</li><li>Back up first: select all → Compress → download the zip.</li>
+<li>Click <b>Upload</b> and choose <b>maasinspiration_upload.zip</b> (ask Grok Bot to send it to you).</li>
+<li>Right-click the zip → <b>Extract</b> into public_html → allow it to replace files.</li>
+<li>Open maasinspiration.org, refresh, and check Home, Donate, and Volunteer.</li></ol>
+<p class="muted">The website is frozen. Nothing changes until you ask.</p></div>
+<p class="muted" style="text-align:center;margin:24px 0">MAA's Inspiration Inc. · 501(c)(3) · EIN 86-2221897</p>
+</main>
+<script>
+const API="https://script.google.com/macros/s/AKfycbx1VIE_gWz_2DziRg7AaW53JJQFw0v9vcMrG18Fx-V575O2eAKIrZ3ttDO2CK9jSplzoA/exec";
+const N={social:["📱","Social Media"],website:["🖥️","Website"],finance:["💵","Financial Tracking"],ops:["⚙️","Operations"]};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function render(items,when){let t=items.length,d=items.filter(x=>x.done).length,p=t?Math.round(d*100/t):0;
+ov.textContent=p+"%";ovb.style.width=p+"%";ovt.textContent=d+" of "+t+" tasks done";
+areas.innerHTML=Object.keys(N).map(k=>{const a=items.filter(x=>x.sec==k),ad=a.filter(x=>x.done).length,ap=a.length?Math.round(ad*100/a.length):0,
+nx=a.filter(x=>!x.done)[0];return`<div class="c"><h3>${N[k][0]} ${N[k][1]}</h3><div class="big" style="font-size:1.8rem">${ap}%</div><div class="bar"><i style="width:${ap}%"></i></div><div class="muted">${ad} of ${a.length} done</div>${nx?`<p style="font-size:.85rem"><b>Next:</b> ${esc(nx.text)}</p>`:""}</div>`}).join("");
+const m=items.filter(x=>!x.done&&/aslam/i.test(x.owner)).sort((a,b)=>(Date.parse(a.due)||9e15)-(Date.parse(b.due)||9e15));nc.textContent=m.length;
+mine.innerHTML=m.slice(0,12).map(x=>`<li><b>${esc(x.due||"No date")}</b> · ${esc(x.text)} <span class="muted">(${N[x.sec][1]})</span></li>`).join("")+(m.length>12?`<li class="muted">…and ${m.length-12} more in the checklist app</li>`:"")||"<li>Nothing waiting on you 🎉</li>";
+upd.textContent="Updated "+when}
+function load(){upd.textContent="Loading…";fetch(API).then(r=>r.json()).then(j=>{localStorage.dash=JSON.stringify(j.items);render(j.items,new Date().toLocaleString())})
+.catch(()=>{const c=localStorage.dash;if(c)render(JSON.parse(c),"(offline – last saved copy)");else upd.textContent="Could not reach the checklist"})}
+load();let dp;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e});
+inst.onclick=async()=>{if(dp){dp.prompt();await dp.userChoice;dp=null}else{help.style.display="block";help.scrollIntoView({behavior:"smooth"})}};
+addEventListener("appinstalled",()=>inst.textContent="✓ Installed");
+if(matchMedia("(display-mode: standalone)").matches)inst.style.display="none";
+if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
+</script></body></html>
