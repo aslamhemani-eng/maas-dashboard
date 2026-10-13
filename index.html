@@ -110,10 +110,10 @@ function load(){upd.textContent="Loading…";fetch(API).then(r=>r.json()).then(j
 let ACT=[],ITEMS=[];const MN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const fd=d=>{const x=new Date(d+"T12:00:00");return MN[x.getMonth()]+" "+x.getDate()+", "+x.getFullYear()};
 function actFor(k){const a=ACT.filter(x=>x.sec==k).map(x=>({d:x.date,w:x.what,s:x.status}));
- ITEMS.filter(x=>x.sec==k&&x.done).forEach(x=>{const t=Date.parse(x.due);a.push({d:t?new Date(t).toISOString().slice(0,10):"",w:x.text,s:"Done (checklist)"})});
+ ITEMS.filter(x=>x.sec==k&&x.done).forEach(x=>{const t=Date.parse(x.due);{const due=t?new Date(t).toISOString().slice(0,10):"",td=new Date().toISOString().slice(0,10);a.push({d:due&&due>td?td:due,w:x.text+(due>td?" (planned "+fd(due)+")":""),s:"Done (checklist)",ck:1})}});
  return a.sort((p,q)=>(q.d||"").localeCompare(p.d||""))}
-function actMeta(k){const a=actFor(k);return a.length+" activities · last "+(a[0]&&a[0].d?fd(a[0].d):"—")}
-function openAct(k,n){const a=actFor(k);actT.textContent=n+": activity";actL.innerHTML=a.map(x=>`<div class="ai"><div class="dt">${x.d?fd(x.d):"No date"}</div><div class="w">${esc(x.w)}</div><div><span class="tag ${/Waiting/.test(x.s)?"ty":"tg"}">${esc(x.s)}</span></div></div>`).join("")+'<p class="muted">Checklist items show their planned date; the checklist does not record the day they were ticked.</p>';actM.classList.add("open")}
+function actMeta(k){const a=actFor(k),c=a.filter(x=>!x.ck&&x.d);return a.length+" activities · last updated "+(c[0]?fd(c[0].d):(a[0]&&a[0].d?fd(a[0].d):"—"))}
+function openAct(k,n){const a=actFor(k);actT.textContent=n+": activity";actL.innerHTML=a.map(x=>`<div class="ai"><div class="dt">${x.d?fd(x.d):"No date"}</div><div class="w">${esc(x.w)}</div><div><span class="tag ${/Waiting/.test(x.s)?"ty":"tg"}">${esc(x.s)}</span></div></div>`).join("")+'<p class="muted">Checklist items show their planned date; the checklist does not record the day they were ticked. Items ticked before their planned date are listed as of today.</p>';actM.classList.add("open")}
 function closeAct(){actM.classList.remove("open")}
 addEventListener("keydown",e=>{if(e.key=="Escape")closeAct()});
 function actBtns(){document.querySelectorAll("#areas .c").forEach((c,i)=>{const k=["social","website","finance","ops","fund"][i],n=c.querySelector("h3").textContent.replace(/^\S+\s/,"");
