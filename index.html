@@ -30,6 +30,10 @@ nav{background:#5B2A86;padding:6px 20px;display:flex;gap:16px;flex-wrap:wrap}nav
 .dm textarea{width:100%;min-height:34px;border:1px solid #e2d9ea;border-radius:6px;padding:6px;font:inherit;font-size:.85rem;resize:vertical}
 .tog{border:2px solid #2E7D4F;background:#fff;color:#2E7D4F;border-radius:20px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.tog.on{background:#2E7D4F;color:#fff}
 @media(max-width:480px){.dtot{grid-template-columns:1fr 1fr}}
+.actb{margin-top:8px;background:#fff;border:2px solid #5B2A86;color:#5B2A86;border-radius:8px;padding:6px 10px;font-weight:700;cursor:pointer}
+#actM{display:none;position:fixed;inset:0;background:#0007;z-index:50;align-items:center;justify-content:center;padding:12px}#actM.open{display:flex}
+#actM .box{background:#fff;border-radius:12px;max-width:640px;width:100%;max-height:85vh;overflow:auto;padding:16px}#actM h3{color:#3D1A6E;margin:0}
+.ai{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #eee;font-size:.9rem}.ai .dt{min-width:86px;color:#6b6175;font-weight:700}.ai .w{flex:1}
 </style></head><body>
 <header><img src="icon-192.png" alt="Maa's Inspiration logo"><div><h1>Maa's Inspiration Project Dashboard</h1><p>Aslam Hemani, Director · <span id="upd">Loading…</span></p></div><div class="sp"></div>
 <button class="btn" id="inst">⬇ Install as desktop app</button><button class="btn p" onclick="load()">↻ Refresh</button></header><nav><a href="#top">Progress</a><a href="#areas">Areas</a><a href="#fund">💛 Fundraising</a><a href="#donors">🔒 Donors</a><a href="#links">Quick links</a></nav>
@@ -88,12 +92,12 @@ nav{background:#5B2A86;padding:6px 20px;display:flex;gap:16px;flex-wrap:wrap}nav
 <li>Open maasinspiration.org, refresh, and check Home, Donate, and Volunteer.</li></ol>
 <p class="muted">The website is frozen. Nothing changes until you ask.</p></div>
 <p class="muted" style="text-align:center;margin:24px 0">MAA's Inspiration Inc. · 501(c)(3) · EIN 86-2221897</p>
-</main>
+</main><div id="actM" onclick="if(event.target===this)closeAct()"><div class="box"><div style="display:flex;justify-content:space-between;align-items:center"><h3 id="actT"></h3><button class="btn p" onclick="closeAct()">✕ Close</button></div><div id="actL"></div></div></div>
 <script>
 const API="https://script.google.com/macros/s/AKfycbx1VIE_gWz_2DziRg7AaW53JJQFw0v9vcMrG18Fx-V575O2eAKIrZ3ttDO2CK9jSplzoA/exec";
 const N={social:["📱","Social Media"],website:["🖥️","Website"],finance:["💵","Financial Tracking"],ops:["⚙️","Operations"]};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-function render(items,when){let t=items.length,d=items.filter(x=>x.done).length,p=t?Math.round(d*100/t):0;
+function render(items,when){ITEMS=items;setTimeout(actBtns,0);let t=items.length,d=items.filter(x=>x.done).length,p=t?Math.round(d*100/t):0;
 ov.textContent=p+"%";ovb.style.width=p+"%";ovt.textContent=d+" of "+t+" tasks done";
 areas.innerHTML=Object.keys(N).map(k=>{const a=items.filter(x=>x.sec==k),ad=a.filter(x=>x.done).length,ap=a.length?Math.round(ad*100/a.length):0,
 nx=a.filter(x=>!x.done)[0];return`<div class="c"><h3>${N[k][0]} ${N[k][1]}</h3><div class="big" style="font-size:1.8rem">${ap}%</div><div class="bar"><i style="width:${ap}%"></i></div><div class="muted">${ad} of ${a.length} done</div>${nx?`<p style="font-size:.85rem"><b>Next:</b> ${esc(nx.text)}</p>`:""}</div>`}).join("")+`<div class="c"><h3>💛 Fundraising</h3><div class="big" style="font-size:1.8rem">Starts Oct 19</div><div class="bar"><i style="width:0"></i></div><div class="muted">3-month existing-donor plan (Oct 19 – Jan 15)</div><p style="font-size:.85rem"><b>Next:</b> thank-you + impact touch to every donor by Nov 13. <a href="#fund">See plan</a> · <a href="#donors">Donors 🔒</a></p></div>`;
@@ -102,6 +106,19 @@ mine.innerHTML=m.slice(0,12).map(x=>`<li><b>${esc(x.due||"No date")}</b> · ${es
 upd.textContent="Updated "+when}
 function load(){upd.textContent="Loading…";fetch(API).then(r=>r.json()).then(j=>{localStorage.dash=JSON.stringify(j.items);render(j.items,new Date().toLocaleString())})
 .catch(()=>{const c=localStorage.dash;if(c)render(JSON.parse(c),"(offline – last saved copy)");else upd.textContent="Could not reach the checklist"})}
+
+let ACT=[],ITEMS=[];const MN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const fd=d=>{const x=new Date(d+"T12:00:00");return MN[x.getMonth()]+" "+x.getDate()+", "+x.getFullYear()};
+function actFor(k){const a=ACT.filter(x=>x.sec==k).map(x=>({d:x.date,w:x.what,s:x.status}));
+ ITEMS.filter(x=>x.sec==k&&x.done).forEach(x=>{const t=Date.parse(x.due);a.push({d:t?new Date(t).toISOString().slice(0,10):"",w:x.text,s:"Done (checklist)"})});
+ return a.sort((p,q)=>(q.d||"").localeCompare(p.d||""))}
+function actMeta(k){const a=actFor(k);return a.length+" activities · last "+(a[0]&&a[0].d?fd(a[0].d):"—")}
+function openAct(k,n){const a=actFor(k);actT.textContent=n+": activity";actL.innerHTML=a.map(x=>`<div class="ai"><div class="dt">${x.d?fd(x.d):"No date"}</div><div class="w">${esc(x.w)}</div><div><span class="tag ${/Waiting/.test(x.s)?"ty":"tg"}">${esc(x.s)}</span></div></div>`).join("")+'<p class="muted">Checklist items show their planned date; the checklist does not record the day they were ticked.</p>';actM.classList.add("open")}
+function closeAct(){actM.classList.remove("open")}
+addEventListener("keydown",e=>{if(e.key=="Escape")closeAct()});
+function actBtns(){document.querySelectorAll("#areas .c").forEach((c,i)=>{const k=["social","website","finance","ops","fund"][i],n=c.querySelector("h3").textContent.replace(/^\S+\s/,"");
+ c.querySelector(".am")?.remove();c.querySelector(".actb")?.remove();c.insertAdjacentHTML("beforeend",`<div class="muted am" style="font-size:.8rem;margin-top:6px">${actMeta(k)}</div><button class="actb" onclick="openAct('${k}','${n.replace(/'/g,"\\'")}')">See activity</button>`)})}
+fetch("activity.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{ACT=j.items;actBtns()});
 load();let dp;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e});
 const standalone=()=>matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
 function showHelp(msg){help.style.display="block";helpn.textContent=msg||"";help.scrollIntoView({behavior:"smooth"})}
