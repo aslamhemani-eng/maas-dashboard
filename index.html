@@ -23,9 +23,16 @@ ul.l{list-style:none;padding:0;margin:0}ul.l li{padding:8px 0;border-bottom:1px 
 h3.sub{color:#5B2A86;margin:18px 0 8px}img.ch{width:100%;height:auto}ol.sm li{margin:4px 0}.qs li{margin:6px 0}.c a{color:#5B2A86}.c a.btn{color:#2b2233}.c a.btn.p{color:#fff}
 nav{background:#5B2A86;padding:6px 20px;display:flex;gap:16px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
 .btn{display:inline-block;margin:3px 0}details.t10{margin-bottom:10px}details.t10 summary{cursor:pointer;font-weight:700;color:#3D1A6E;font-size:1.02rem}details.t10 li{margin:8px 0}
+.inp{padding:10px;border:1px solid #cfc3dc;border-radius:8px;font-size:1rem;max-width:100%}
+.dtot{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.dtot div{background:#F3EBDD;border-radius:10px;padding:10px;text-align:center}.dtot b{display:block;color:#3D1A6E;font-size:1.2rem}.dtot span{font-size:.8rem;color:#6b6175}
+.dbar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:8px}.dbar .inp{flex:1;min-width:160px}
+.drow{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #eee}.dn{color:#6b6175;min-width:34px;font-weight:700}.dm{flex:1;display:flex;flex-direction:column;gap:3px}
+.dm textarea{width:100%;min-height:34px;border:1px solid #e2d9ea;border-radius:6px;padding:6px;font:inherit;font-size:.85rem;resize:vertical}
+.tog{border:2px solid #2E7D4F;background:#fff;color:#2E7D4F;border-radius:20px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.tog.on{background:#2E7D4F;color:#fff}
+@media(max-width:480px){.dtot{grid-template-columns:1fr 1fr}}
 </style></head><body>
 <header><img src="icon-192.png" alt="Maa's Inspiration logo"><div><h1>Maa's Inspiration Project Dashboard</h1><p>Aslam Hemani, Director · <span id="upd">Loading…</span></p></div><div class="sp"></div>
-<button class="btn" id="inst">⬇ Install as desktop app</button><button class="btn p" onclick="load()">↻ Refresh</button></header><nav><a href="#top">Progress</a><a href="#areas">Areas</a><a href="#fund">💛 Existing Donors</a><a href="#links">Quick links</a></nav>
+<button class="btn" id="inst">⬇ Install as desktop app</button><button class="btn p" onclick="load()">↻ Refresh</button></header><nav><a href="#top">Progress</a><a href="#areas">Areas</a><a href="#donors">🔒 Donors</a><a href="#fund">💛 Existing Donors</a><a href="#links">Quick links</a></nav>
 <main>
 <div class="c" id="help"><h3 id="helph">How to install this as an app</h3><p class="muted" id="helpn"></p><ul class="l">
 <li><b>Chrome:</b> click the install icon (a small screen with a down arrow) at the right end of the address bar, or open the ⋮ menu → <b>Cast, save and share</b> → <b>Install page as app</b>.</li>
@@ -54,6 +61,13 @@ nav{background:#5B2A86;padding:6px 20px;display:flex;gap:16px;flex-wrap:wrap}nav
 <a class="c tile" target="_blank" href="https://www.facebook.com/maasinspiration"><span>👍</span>Facebook</a>
 <a class="c tile" href="#fund"><span>💛</span>Fundraising<small>Existing donors · 3 months</small></a>
 <a class="c tile" href="#up"><span>📦</span>GoDaddy upload<small>Steps below</small></a></div>
+<h2 id="donors">Donors (private)</h2>
+<div class="c" id="dLocked"><h3>🔒 Donors (private)</h3><p class="muted">Enter the donor passcode to see the list. It is kept only until you close this tab.</p>
+<input id="dPass" type="password" autocomplete="off" placeholder="Passcode" class="inp"> <button class="btn p" id="dGo">Unlock</button><p class="muted" id="dMsg"></p></div>
+<div class="c" id="dOpen" style="display:none"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><h3 style="margin:0">Donors (private)</h3><button class="btn" id="dLock">🔒 Lock</button></div>
+<div class="dtot" id="dTot"></div>
+<div class="dbar"><input id="dQ" class="inp" placeholder="Search name or #"><button class="btn p dF" data-f="all">All</button><button class="btn dF" data-f="paid">Paid</button><button class="btn dF" data-f="unpaid">Unpaid</button></div>
+<div id="dList"></div></div>
 <h2 id="fund">Fundraising: Existing Donors</h2>
 <div class="c"><h3 style="margin-top:0">Existing Donors</h3><ol>
 <li><b>How to reach them:</b> a personal call, text or email from Aslam, using the phone/email on the private donor list.</li>
@@ -97,4 +111,4 @@ else showHelp("Your browser did not offer a one-click install here (it may alrea
 addEventListener("appinstalled",()=>{inst.textContent="✓ Installed";dp=null});
 if(standalone()){inst.textContent="✓ Installed app"}
 if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
-</script></body></html>
+</script><script src="donors-config.js"></script><script src="donors.js"></script></body></html>
