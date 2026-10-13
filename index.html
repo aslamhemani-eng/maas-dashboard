@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Maa's Inspiration Dashboard</title><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#3D1A6E">
-<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico"><link rel="icon" href="icon-192.png" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#F3EBDD;font-family:system-ui,Segoe UI,Arial,sans-serif;color:#2b2233}
 header{background:#3D1A6E;color:#fff;padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -23,9 +23,11 @@ ul.l{list-style:none;padding:0;margin:0}ul.l li{padding:8px 0;border-bottom:1px 
 <header><img src="icon-192.png" alt="Maa's Inspiration logo"><div><h1>Maa's Inspiration Project Dashboard</h1><p>Aslam Hemani, Director · <span id="upd">Loading…</span></p></div><div class="sp"></div>
 <button class="btn" id="inst">⬇ Install as desktop app</button><button class="btn p" onclick="load()">↻ Refresh</button></header>
 <main>
-<div class="c" id="help"><h3>How to install this as an app</h3><ul class="l">
-<li><b>Chrome or Edge (Windows/Mac):</b> click the install icon (a little screen with an arrow) at the right end of the address bar, or open the ⋮ / … menu and choose "Install Maa's Dashboard" (Edge: Apps → Install this site as an app).</li>
-<li><b>Safari on Mac:</b> File menu → Add to Dock.</li><li><b>iPhone / iPad:</b> tap Share → Add to Home Screen.</li><li><b>Android:</b> ⋮ menu → Install app.</li></ul></div>
+<div class="c" id="help"><h3 id="helph">How to install this as an app</h3><p class="muted" id="helpn"></p><ul class="l">
+<li><b>Chrome:</b> click the install icon (a small screen with a down arrow) at the right end of the address bar, or open the ⋮ menu → <b>Cast, save and share</b> → <b>Install page as app</b>.</li>
+<li><b>Edge:</b> open the … menu → <b>Apps</b> → <b>Install this site as an app</b>.</li>
+<li><b>Safari on Mac:</b> File menu → Add to Dock.</li><li><b>iPhone / iPad:</b> tap Share → Add to Home Screen.</li><li><b>Android:</b> ⋮ menu → Install app.</li></ul>
+<p><b>Or just put a shortcut on your desktop:</b> <a class="btn p" href="Maas-Dashboard.url" download>Windows shortcut</a> <a class="btn p" href="Maas-Dashboard.webloc" download>Mac shortcut</a></p><p class="muted">Download it, then drag the file onto your desktop. Double-click it to open the dashboard.</p></div>
 <h2>Overall progress</h2>
 <div class="g g2"><div class="c"><div class="big" id="ov">–%</div><div class="bar"><i id="ovb" style="width:0"></i></div><div class="muted" id="ovt">Reading the checklist…</div></div>
 <div class="c"><h3>Coming up</h3><ul class="l">
@@ -70,8 +72,12 @@ upd.textContent="Updated "+when}
 function load(){upd.textContent="Loading…";fetch(API).then(r=>r.json()).then(j=>{localStorage.dash=JSON.stringify(j.items);render(j.items,new Date().toLocaleString())})
 .catch(()=>{const c=localStorage.dash;if(c)render(JSON.parse(c),"(offline – last saved copy)");else upd.textContent="Could not reach the checklist"})}
 load();let dp;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e});
-inst.onclick=async()=>{if(dp){dp.prompt();await dp.userChoice;dp=null}else{help.style.display="block";help.scrollIntoView({behavior:"smooth"})}};
-addEventListener("appinstalled",()=>inst.textContent="✓ Installed");
-if(matchMedia("(display-mode: standalone)").matches)inst.style.display="none";
+const standalone=()=>matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+function showHelp(msg){help.style.display="block";helpn.textContent=msg||"";help.scrollIntoView({behavior:"smooth"})}
+inst.onclick=async()=>{if(standalone()){showHelp("✓ You are already using the installed app.");return}
+if(dp){dp.prompt();const r=await dp.userChoice;dp=null;if(r.outcome!=="accepted")showHelp("No problem. You can install it any time with the steps below.")}
+else showHelp("Your browser did not offer a one-click install here (it may already be installed, or you may be using Safari or Firefox). Use the steps for your browser below, or download a desktop shortcut.")};
+addEventListener("appinstalled",()=>{inst.textContent="✓ Installed";dp=null});
+if(standalone()){inst.textContent="✓ Installed app"}
 if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
 </script></body></html>
