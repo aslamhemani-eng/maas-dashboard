@@ -180,6 +180,12 @@
    "date": "2026-10-13",
    "what": "Mockups, App Breakdown sheet and Operational App Template created",
    "status": "Done"
+  },
+  {
+   "sec": "opapp",
+   "date": "2026-10-13",
+   "what": "Clickable app preview published (sample data)",
+   "status": "Done"
   }
  ]
 }
