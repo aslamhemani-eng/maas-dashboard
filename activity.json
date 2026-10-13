@@ -52,7 +52,7 @@
   {
    "sec": "website",
    "date": "2026-10-11",
-   "what": "Maa's Place, Blooming Star Village and Programs pages built",
+   "what": "Maa's Place, Star Village and Programs pages built",
    "status": "Done"
   },
   {
@@ -100,7 +100,7 @@
   {
    "sec": "website",
    "date": "2026-10-11",
-   "what": "New photos for Maa's Place, Blooming Star Village and Maa's Meals",
+   "what": "New photos for Maa's Place, Star Village and Maa's Meals",
    "status": "Done"
   },
   {
@@ -209,6 +209,12 @@
    "sec": "opapp",
    "date": "2026-10-13",
    "what": "Applied Aslam's latest answers to the app (street handout location and 100 default, inventory reorder rule and suppliers, auto-assigned routes with photo proof, kiosk 9:30 AM front desk with phone PIN, Maa's Place opens Nov 15, closures, texting and privacy rules); Info Needed list now 9 open items (50 on Done tab)",
+   "status": "Done"
+  },
+  {
+   "sec": "opapp",
+   "date": "2026-10-13",
+   "what": "Applied Aslam's latest answers (build: our own web app; stock 24 of each item; Maa's Place shift Mon–Thu 10:30–2 with ~3 volunteers; Star Village shift Mon–Thu 11–2 with 2 volunteers; data in Maa's Google account); program renamed to Star Village; Info Needed list now 5 open items",
    "status": "Done"
   }
  ]
