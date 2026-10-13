@@ -186,6 +186,12 @@
    "date": "2026-10-13",
    "what": "Clickable app preview published (sample data)",
    "status": "Done"
+  },
+  {
+   "sec": "opapp",
+   "date": "2026-10-13",
+   "what": "Info Needed sheet (58 items) and 'How we finalize' plan created",
+   "status": "Done"
   }
  ]
 }
