@@ -1,29 +1,173 @@
-{"note":"Real dated work only. Checklist items are added live by the dashboard.","items":[
-{"sec":"ops","date":"2026-10-11","what":"Implementation plan v1 and v2 written (Word + visual PDF)","status":"Done"},
-{"sec":"ops","date":"2026-10-11","what":"Checklist app published and synced to Google Sheet","status":"Done"},
-{"sec":"ops","date":"2026-10-11","what":"Project dashboard published as installable app","status":"Done"},
-{"sec":"ops","date":"2026-10-13","what":"Dashboard install fixes + desktop shortcut files","status":"Done"},
-{"sec":"social","date":"2026-10-11","what":"Donate QR code and logo prepared for videos","status":"Done"},
-{"sec":"social","date":"2026-10-11","what":"TikTok template built (QR, logo, website, captions, music, voiceover)","status":"Done"},
-{"sec":"social","date":"2026-10-11","what":"Sample videos A (how meals get made) and B (join the team) rendered on template","status":"Done"},
-{"sec":"social","date":"2026-10-11","what":"TikTok sign-in from the assistant blocked; Aslam to sign in","status":"Waiting on Aslam"},
-{"sec":"website","date":"2026-10-11","what":"Maa's Place, Blooming Star Village and Programs pages built","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"Live edit page for website text","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"Site-wide theme: beige backgrounds, purple accents, gold Donate","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"New home page with three program buttons","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"About page rewritten","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"Schedule page: three programs; Maa's Meals Saturdays 10 AM–noon","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"Volunteer form rebuilt from live form with program choice","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"Full site review; 10 fixes applied","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"New photos for Maa's Place, Blooming Star Village and Maa's Meals","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"Contact page and Maa's Place participation waiver added","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"All links checked; upload zip for GoDaddy built","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"Website frozen as final version until Aslam asks","status":"Done"},
-{"sec":"website","date":"2026-10-11","what":"GoDaddy upload","status":"Waiting on Aslam"},
-{"sec":"finance","date":"2026-10-11","what":"Donate page tags gifts by program (Stripe)","status":"Done"},
-{"sec":"fund","date":"2026-10-13","what":"12-month fundraising plan, tracker and charts written","status":"Done"},
-{"sec":"fund","date":"2026-10-13","what":"Fundraising Top 10 summary (PDF + Word)","status":"Done"},
-{"sec":"fund","date":"2026-10-13","what":"Existing-donor 3-month plan (Oct 19 – Jan 15)","status":"Done"},
-{"sec":"fund","date":"2026-10-13","what":"Private donor tracker sheet + passcode-locked Donors card","status":"Done"},
-{"sec":"fund","date":"2026-10-13","what":"Donor service deployment (Apps Script)","status":"Waiting on Aslam"}
-]}
+{
+ "note": "Real dated work only. Checklist items are added live by the dashboard.",
+ "items": [
+  {
+   "sec": "ops",
+   "date": "2026-10-11",
+   "what": "Implementation plan v1 and v2 written (Word + visual PDF)",
+   "status": "Done"
+  },
+  {
+   "sec": "ops",
+   "date": "2026-10-11",
+   "what": "Checklist app published and synced to Google Sheet",
+   "status": "Done"
+  },
+  {
+   "sec": "ops",
+   "date": "2026-10-11",
+   "what": "Project dashboard published as installable app",
+   "status": "Done"
+  },
+  {
+   "sec": "ops",
+   "date": "2026-10-13",
+   "what": "Dashboard install fixes + desktop shortcut files",
+   "status": "Done"
+  },
+  {
+   "sec": "social",
+   "date": "2026-10-11",
+   "what": "Donate QR code and logo prepared for videos",
+   "status": "Done"
+  },
+  {
+   "sec": "social",
+   "date": "2026-10-11",
+   "what": "TikTok template built (QR, logo, website, captions, music, voiceover)",
+   "status": "Done"
+  },
+  {
+   "sec": "social",
+   "date": "2026-10-11",
+   "what": "Sample videos A (how meals get made) and B (join the team) rendered on template",
+   "status": "Done"
+  },
+  {
+   "sec": "social",
+   "date": "2026-10-11",
+   "what": "TikTok sign-in from the assistant blocked; Aslam to sign in",
+   "status": "Waiting on Aslam"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "Maa's Place, Blooming Star Village and Programs pages built",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "Live edit page for website text",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "Site-wide theme: beige backgrounds, purple accents, gold Donate",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "New home page with three program buttons",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "About page rewritten",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "Schedule page: three programs; Maa's Meals Saturdays 10 AM–noon",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "Volunteer form rebuilt from live form with program choice",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "Full site review; 10 fixes applied",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "New photos for Maa's Place, Blooming Star Village and Maa's Meals",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "Contact page and Maa's Place participation waiver added",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "All links checked; upload zip for GoDaddy built",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "Website frozen as final version until Aslam asks",
+   "status": "Done"
+  },
+  {
+   "sec": "website",
+   "date": "2026-10-11",
+   "what": "GoDaddy upload",
+   "status": "Waiting on Aslam"
+  },
+  {
+   "sec": "finance",
+   "date": "2026-10-11",
+   "what": "Donate page tags gifts by program (Stripe)",
+   "status": "Done"
+  },
+  {
+   "sec": "fund",
+   "date": "2026-10-13",
+   "what": "12-month fundraising plan, tracker and charts written",
+   "status": "Done"
+  },
+  {
+   "sec": "fund",
+   "date": "2026-10-13",
+   "what": "Fundraising Top 10 summary (PDF + Word)",
+   "status": "Done"
+  },
+  {
+   "sec": "fund",
+   "date": "2026-10-13",
+   "what": "Existing-donor 3-month plan (Oct 19 – Jan 15)",
+   "status": "Done"
+  },
+  {
+   "sec": "fund",
+   "date": "2026-10-13",
+   "what": "Private donor tracker sheet + passcode-locked Donors card",
+   "status": "Done"
+  },
+  {
+   "sec": "fund",
+   "date": "2026-10-13",
+   "what": "Donor service deployment (Apps Script)",
+   "status": "Waiting on Aslam"
+  },
+  {
+   "sec": "opapp",
+   "date": "2026-10-13",
+   "what": "Operational App section added (8 starter tasks in the checklist)",
+   "status": "Done"
+  }
+ ]
+}
