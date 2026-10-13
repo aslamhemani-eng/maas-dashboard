@@ -34,6 +34,11 @@ nav{background:#5B2A86;padding:6px 20px;display:flex;gap:16px;flex-wrap:wrap}nav
 #actM{display:none;position:fixed;inset:0;background:#0007;z-index:50;align-items:center;justify-content:center;padding:12px}#actM.open{display:flex}
 #actM .box{background:#fff;border-radius:12px;max-width:640px;width:100%;max-height:85vh;overflow:auto;padding:16px}#actM h3{color:#3D1A6E;margin:0}
 .ai{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #eee;font-size:.9rem}.ai .dt{min-width:86px;color:#6b6175;font-weight:700}.ai .w{flex:1}
+#planM{display:none;position:fixed;inset:0;background:#0007;z-index:50;align-items:center;justify-content:center;padding:12px}#planM.open{display:flex}
+#planM .box{background:#fff;border-radius:12px;max-width:900px;width:100%;max-height:88vh;overflow:auto;padding:16px}#planM h3{color:#3D1A6E;margin:0}#planM h4{color:#5B2A86;margin:14px 0 6px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.gal a{display:block;border:1px solid #e2d9ea;border-radius:8px;overflow:hidden;text-decoration:none;color:#3D1A6E;font-size:.8rem;font-weight:700}.gal img{width:100%;height:110px;object-fit:cover;object-position:left top;display:block}.gal span{display:block;padding:5px}
+@media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
+#imgV{display:none;position:fixed;inset:0;background:#000d;z-index:60;align-items:center;justify-content:center;padding:10px}#imgV.open{display:flex}#imgV img{max-width:100%;max-height:92vh;background:#fff;border-radius:6px}
 </style></head><body>
 <header><img src="icon-192.png" alt="Maa's Inspiration logo"><div><h1>Maa's Inspiration Project Dashboard</h1><p>Aslam Hemani, Director · <span id="upd">Loading…</span></p></div><div class="sp"></div>
 <button class="btn" id="inst">⬇ Install as desktop app</button><button class="btn p" onclick="load()">↻ Refresh</button></header><nav><a href="#top">Progress</a><a href="#areas">Areas</a><a href="#fund">💛 Fundraising</a><a href="#donors">🔒 Donors</a><a href="#links">Quick links</a></nav>
@@ -92,7 +97,23 @@ nav{background:#5B2A86;padding:6px 20px;display:flex;gap:16px;flex-wrap:wrap}nav
 <li>Open maasinspiration.org, refresh, and check Home, Donate, and Volunteer.</li></ol>
 <p class="muted">The website is frozen. Nothing changes until you ask.</p></div>
 <p class="muted" style="text-align:center;margin:24px 0">MAA's Inspiration Inc. · 501(c)(3) · EIN 86-2221897</p>
-</main><div id="actM" onclick="if(event.target===this)closeAct()"><div class="box"><div style="display:flex;justify-content:space-between;align-items:center"><h3 id="actT"></h3><button class="btn p" onclick="closeAct()">✕ Close</button></div><div id="actL"></div></div></div>
+</main><div id="planM" onclick="if(event.target===this)this.classList.remove('open')"><div class="box"><div style="display:flex;justify-content:space-between;align-items:center"><h3>📲 Operational App: plan</h3><button class="btn p" onclick="planM.classList.remove('open')">✕ Close</button></div>
+<p>One place for staff and volunteers to run the weekly work. Based on Aslam's mockups, App Breakdown sheet and template (Oct 13).</p>
+<h4>What it will do</h4><ul class="l">
+<li><b>Dashboard:</b> this week at a glance: meal deliveries, sandwich count, volunteers checked in, low supplies, approvals.</li>
+<li><b>Menu &amp; vendors:</b> a suggested weekly menu from our dish list; edit, approve, and send to vendors.</li>
+<li><b>Street handout:</b> set the weekly sandwich count and send it to the store.</li>
+<li><b>Inventory:</b> supplies on hand vs. ideal; weekly use auto-deducted; "reorder soon" alerts.</li>
+<li><b>Volunteers &amp; routes:</b> admin roles, driver routes and delivery places (shelters), school hours.</li>
+<li><b>Check-in kiosk:</b> volunteers check in for shifts; hours are tracked.</li>
+<li><b>Access:</b> three levels: Owner, Admin, Volunteer.</li></ul>
+<h4>Mockups (tap to enlarge)</h4><div class="gal"><a href="opapp/overview.jpg" onclick="event.preventDefault();showImg(this.href)"><img loading="lazy" src="opapp/overview.jpg" alt="Overview mockup"><span>Overview</span></a><a href="opapp/delivery-menu.jpg" onclick="event.preventDefault();showImg(this.href)"><img loading="lazy" src="opapp/delivery-menu.jpg" alt="Menu & vendors mockup"><span>Menu & vendors</span></a><a href="opapp/sandwich-count.jpg" onclick="event.preventDefault();showImg(this.href)"><img loading="lazy" src="opapp/sandwich-count.jpg" alt="Street handout mockup"><span>Street handout</span></a><a href="opapp/inventory.jpg" onclick="event.preventDefault();showImg(this.href)"><img loading="lazy" src="opapp/inventory.jpg" alt="Inventory mockup"><span>Inventory</span></a><a href="opapp/volunteers-routes.jpg" onclick="event.preventDefault();showImg(this.href)"><img loading="lazy" src="opapp/volunteers-routes.jpg" alt="Volunteers & routes mockup"><span>Volunteers & routes</span></a></div>
+<p class="muted">Mockups use sample names and numbers. No check-in kiosk mockup yet.</p>
+<h4>Aslam's files (private, in his Google Drive)</h4><ul class="l">
+<li><a target="_blank" href="https://docs.google.com/document/d/1MCbFXhyQDV7uPwZ_x12RIXxfswLpcrotBPgnaza9F0E/edit">Mockup images</a></li>
+<li><a target="_blank" href="https://docs.google.com/spreadsheets/d/1yS7A_SjEMCVOB7ePhOmMBABfjPAakr9FqZA38sYsEPU/edit">Maa's App Breakdown</a></li>
+<li><a target="_blank" href="https://docs.google.com/document/d/1phRt7DSFYY8IYKocOVcI_TiiMYtYtKPVOIC8AhmDxjA/edit">Operational App Template</a></li></ul></div></div>
+<div id="imgV" onclick="this.classList.remove('open')"><img id="imgVi" alt=""></div><div id="actM" onclick="if(event.target===this)closeAct()"><div class="box"><div style="display:flex;justify-content:space-between;align-items:center"><h3 id="actT"></h3><button class="btn p" onclick="closeAct()">✕ Close</button></div><div id="actL"></div></div></div>
 <script>
 const API="https://script.google.com/macros/s/AKfycbx1VIE_gWz_2DziRg7AaW53JJQFw0v9vcMrG18Fx-V575O2eAKIrZ3ttDO2CK9jSplzoA/exec";
 const N={social:["📱","Social Media"],website:["🖥️","Website"],finance:["💵","Financial Tracking"],ops:["⚙️","Operations"],opapp:["📲","Operational App"]};
@@ -114,10 +135,11 @@ function actFor(k){const a=ACT.filter(x=>x.sec==k).map(x=>({d:x.date,w:x.what,s:
  return a.sort((p,q)=>(q.d||"").localeCompare(p.d||""))}
 function actMeta(k){const a=actFor(k),c=a.filter(x=>!x.ck&&x.d);return a.length+(a.length==1?" activity":" activities")+" · last updated "+(c[0]?fd(c[0].d):(a[0]&&a[0].d?fd(a[0].d):"—"))}
 function openAct(k,n){const a=actFor(k);actT.textContent=n+": activity";actL.innerHTML=a.map(x=>`<div class="ai"><div class="dt">${x.d?fd(x.d):"No date"}</div><div class="w">${esc(x.w)}</div><div><span class="tag ${/Waiting/.test(x.s)?"ty":"tg"}">${esc(x.s)}</span></div></div>`).join("")+'<p class="muted">Checklist items show their planned date; the checklist does not record the day they were ticked. Items ticked before their planned date are listed as of today.</p>';actM.classList.add("open")}
+function showImg(u){imgVi.src=u;imgV.classList.add("open")}
 function closeAct(){actM.classList.remove("open")}
-addEventListener("keydown",e=>{if(e.key=="Escape")closeAct()});
+addEventListener("keydown",e=>{if(e.key=="Escape"){closeAct();planM.classList.remove("open");imgV.classList.remove("open")}});
 function actBtns(){document.querySelectorAll("#areas .c").forEach((c,i)=>{const k=["social","website","finance","ops","opapp","fund"][i],n=c.querySelector("h3").textContent.replace(/^\S+\s/,"");
- c.querySelector(".am")?.remove();c.querySelector(".actb")?.remove();c.insertAdjacentHTML("beforeend",`<div class="muted am" style="font-size:.8rem;margin-top:6px">${actMeta(k)}</div><button class="actb" onclick="openAct('${k}','${n.replace(/'/g,"\\'")}')">See activity</button>`)})}
+ c.querySelector(".am")?.remove();c.querySelector(".actb")?.remove();c.insertAdjacentHTML("beforeend",`<div class="muted am" style="font-size:.8rem;margin-top:6px">${actMeta(k)}</div><button class="actb" onclick="openAct('${k}','${n.replace(/'/g,"\\'")}')">See activity</button>${k=="opapp"?' <button class="actb" onclick="planM.classList.add(\'open\')">App plan</button>':""}`)})}
 fetch("activity.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{ACT=j.items;actBtns()});
 load();let dp;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e});
 const standalone=()=>matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;

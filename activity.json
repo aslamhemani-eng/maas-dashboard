@@ -168,6 +168,18 @@
    "date": "2026-10-13",
    "what": "Operational App section added (8 starter tasks in the checklist)",
    "status": "Done"
+  },
+  {
+   "sec": "opapp",
+   "date": "2026-10-13",
+   "what": "App plan added from Aslam's mockups, App Breakdown and template; tasks updated to match (10)",
+   "status": "Done"
+  },
+  {
+   "sec": "opapp",
+   "date": "2026-10-13",
+   "what": "Mockups, App Breakdown sheet and Operational App Template created",
+   "status": "Done"
   }
  ]
 }
