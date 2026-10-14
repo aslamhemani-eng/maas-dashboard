@@ -2,14 +2,15 @@
 <title>Maa's Dashboard</title><meta name="theme-color" content="#3D1A6E"><link rel="manifest" href="manifest.json">
 <link rel="icon" href="favicon.ico"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Maa's Dashboard">
-<script>var U='https://script.google.com/macros/s/AKfycbyiM898ljcKjwIUyuZt_1CJHFLo46EU4lrgpaiNkM_n797E3J5hpIJ_-s1JmvDK2FCtOQ/exec';if(matchMedia('(display-mode: standalone)').matches||navigator.standalone)location.replace(U);</script>
+<script>var U='https://script.google.com/macros/s/AKfycbyiM898ljcKjwIUyuZt_1CJHFLo46EU4lrgpaiNkM_n797E3J5hpIJ_-s1JmvDK2FCtOQ/exec';(function(){var q=new URLSearchParams(location.hash.slice(1)),s=new URLSearchParams(location.search);var k=q.get('k')||s.get('k'),n=q.get('n')||s.get('n');try{if(k){localStorage.setItem('maas_k',k);if(n)localStorage.setItem('maas_n',n);else localStorage.removeItem('maas_n');history.replaceState(null,'',location.pathname)}}catch(e){}var K=null;try{K=localStorage.getItem('maas_k')}catch(e){}window.DU=K?U+'?k='+encodeURIComponent(K):U;if(matchMedia('(display-mode: standalone)').matches||navigator.standalone)location.replace(DU)})();</script>
 <style>body{margin:0;background:#F3EBDD;color:#3D1A6E;font-family:system-ui,sans-serif;text-align:center;padding:40px 20px}
 img{width:120px;height:120px;border-radius:24px}h1{margin:16px 0}.b{display:inline-block;margin:8px;padding:14px 28px;border-radius:10px;font-size:18px;font-weight:600;text-decoration:none;border:2px solid #3D1A6E;cursor:pointer}
 .p{background:#3D1A6E;color:#fff}.s{background:#fff;color:#3D1A6E}.h{max-width:480px;margin:20px auto;background:#fff;padding:16px;border-radius:10px;text-align:left;font-size:15px}</style></head><body>
-<img src="icon-512.png" alt="Maa's Inspiration logo"><h1>Maa's Dashboard</h1><p>Private dashboard &ndash; sign in with your approved Google account.</p>
+<img src="icon-512.png" alt="Maa's Inspiration logo"><h1>Maa's Dashboard</h1><p id="hi" hidden></p><p>Private dashboard &ndash; sign in with your approved Google account.</p>
 <a class="b p" id="open" href="https://script.google.com/macros/s/AKfycbyiM898ljcKjwIUyuZt_1CJHFLo46EU4lrgpaiNkM_n797E3J5hpIJ_-s1JmvDK2FCtOQ/exec">Open Dashboard</a><button class="b s" id="inst" hidden>Install app</button>
-<div class="h"><b>iPhone / iPad:</b> open in Safari, tap <b>Share</b> &rarr; <b>Add to Home Screen</b>.</div>
+<p><a href="#" id="sw" style="color:#3D1A6E;font-size:14px" hidden>Switch user / forget key</a></p><div class="h"><b>iPhone / iPad:</b> open in Safari, tap <b>Share</b> &rarr; <b>Add to Home Screen</b>.</div>
 <div class="h"><b>Chrome on computer:</b> if no Install button appears, click the &#8942; menu &rarr; <b>Cast, save, and share</b> &rarr; <b>Install page as app</b> (or <b>Create shortcut&hellip;</b>, tick <b>Open as window</b>).</div>
-<script>if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');var d,b=document.getElementById('inst');
+<script>document.getElementById('open').href=DU;try{var N=localStorage.getItem('maas_n');if(N){var h=document.getElementById('hi');h.textContent='Hi '+N;h.hidden=false}if(localStorage.getItem('maas_k'))document.getElementById('sw').hidden=false}catch(e){}document.getElementById('sw').onclick=function(e){e.preventDefault();localStorage.removeItem('maas_k');localStorage.removeItem('maas_n');location.replace(location.pathname)};
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');var d,b=document.getElementById('inst');
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();d=e;b.hidden=false});
 b.onclick=async()=>{if(!d)return;d.prompt();await d.userChoice;d=null;b.hidden=true};addEventListener('appinstalled',()=>{b.hidden=true})</script></body></html>
