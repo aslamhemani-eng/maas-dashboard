@@ -71,6 +71,7 @@ nav{background:#5B2A86;padding:6px 20px;display:flex;gap:16px;flex-wrap:wrap}nav
 <a class="c tile" href="#fund"><span>💛</span>Fundraising<small>Existing donors · 3 months</small></a>
 <a class="c tile" href="#up"><span>📦</span>GoDaddy upload<small>Steps below</small></a></div>
 <h2 id="fund">Fundraising: Existing Donors</h2>
+<div class="c"><h3 style="margin-top:0">📅 Team meeting: Fundraising Kickoff (Oct 14, 2026), led by Naosheen</h3><p class="muted">Meeting deck in Google Slides. It opens only for people with access to Maa's Drive.</p><a class="btn p" target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1yAMGoRiJPk0NhWVQw_3ll8p8tjIc2-e2hJ3twDtjbSI/edit">Open meeting deck</a></div>
 <div class="c"><h3 style="margin-top:0">Existing Donors</h3><ol>
 <li><b>How to reach them:</b> a personal call, text or email from Aslam, using the phone/email on the private donor list.</li>
 <li><b>The process:</b> thank them, share what their gift did, invite a renewal or $25/mo Maa's Circle gift, then log the touch.</li>
@@ -119,7 +120,7 @@ nav{background:#5B2A86;padding:6px 20px;display:flex;gap:16px;flex-wrap:wrap}nav
 const API="https://script.google.com/macros/s/AKfycbx1VIE_gWz_2DziRg7AaW53JJQFw0v9vcMrG18Fx-V575O2eAKIrZ3ttDO2CK9jSplzoA/exec";
 const N={social:["📱","Social Media"],website:["🖥️","Website"],finance:["💵","Financial Tracking"],ops:["⚙️","Operations"],opapp:["📲","Operational App"]};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-function render(items,when){items=items.map(i=>({...i,text:String(i.text||"").replace(/^Blooming Star Village/,"Star Village")})).map(i=>String(i.text||"").startsWith("[Operational App] ")?{...i,sec:"opapp",text:i.text.slice(18)}:i);ITEMS=items;setTimeout(actBtns,0);let t=items.length,d=items.filter(x=>x.done).length,p=t?Math.round(d*100/t):0;
+function render(items,when){items=items.map(i=>({...i,text:String(i.text||"").replace(/^Blooming Star Village/,"Star Village").replace(/Noushin/g,"Naosheen"),notes:typeof i.notes=="string"?i.notes.replace(/Noushin/g,"Naosheen"):i.notes})).map(i=>String(i.text||"").startsWith("[Operational App] ")?{...i,sec:"opapp",text:i.text.slice(18)}:i);ITEMS=items;setTimeout(actBtns,0);let t=items.length,d=items.filter(x=>x.done).length,p=t?Math.round(d*100/t):0;
 ov.textContent=p+"%";ovb.style.width=p+"%";ovt.textContent=d+" of "+t+" tasks done";
 areas.innerHTML=Object.keys(N).map(k=>{const a=items.filter(x=>x.sec==k),ad=a.filter(x=>x.done).length,ap=a.length?Math.round(ad*100/a.length):0,
 nx=a.filter(x=>!x.done)[0];return`<div class="c"><h3>${N[k][0]} ${N[k][1]}</h3><div class="big" style="font-size:1.8rem">${ap}%</div><div class="bar"><i style="width:${ap}%"></i></div><div class="muted">${ad} of ${a.length} done</div>${nx?`<p style="font-size:.85rem"><b>Next:</b> ${esc(nx.text)}</p>`:""}</div>`}).join("")+`<div class="c"><h3>💛 Fundraising</h3><div class="big" style="font-size:1.8rem">Starts Oct 19</div><div class="bar"><i style="width:0"></i></div><div class="muted">3-month existing-donor plan (Oct 19 – Jan 15)</div><p style="font-size:.85rem"><b>Next:</b> thank-you + impact touch to every donor by Nov 13. <a href="#fund">See plan</a> · <a href="#donors">Donors 🔒</a></p></div>`;

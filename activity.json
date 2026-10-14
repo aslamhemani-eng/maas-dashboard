@@ -228,6 +228,12 @@
    "date": "2026-10-13",
    "what": "App now calls and texts from Maa's Google Voice (469) 573-4691: Call/Text buttons for Al Markaz, Popeyes (Zul), Chef Chen, drivers and volunteer reminders (vendor numbers still to add privately). Finalize plan and Info Needed updated: Google Voice (free) instead of Twilio; texts need one tap to send",
    "status": "Done"
+  },
+  {
+   "sec": "fund",
+   "date": "2026-10-13",
+   "what": "Added Fundraising Kickoff team meeting (Oct 14, led by Naosheen) with a link to the Google Slides deck (Drive access only); name updated to Naosheen across dashboard, ops app and checklist",
+   "status": "Done"
   }
  ]
 }
