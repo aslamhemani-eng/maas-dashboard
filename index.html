@@ -1,9 +1,15 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex"><title>Maa's Inspiration Dashboard has moved</title>
-<style>body{margin:0;background:#F3EBDD;font-family:system-ui,Segoe UI,Arial,sans-serif;color:#2b2233;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
-.c{background:#fff;border-radius:12px;padding:28px;max-width:460px;text-align:center;border-top:6px solid #3D1A6E}h1{color:#3D1A6E;font-size:1.4rem;margin:0 0 10px}
-a{display:inline-block;margin-top:14px;background:#5B2A86;color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:8px;border-bottom:3px solid #C9A227}p{color:#6b6175}</style></head>
-<body><div class="c"><h1>This dashboard has moved to a private page</h1><p>Sign in with your Google account to open it.</p>
-<a href="https://script.google.com/macros/s/AKfycbyiM898ljcKjwIUyuZt_1CJHFLo46EU4lrgpaiNkM_n797E3J5hpIJ_-s1JmvDK2FCtOQ/exec">Open the private dashboard</a></div>
-<script>if("serviceWorker"in navigator){navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.update().catch(function(){})})})}
-if(window.caches)caches.keys().then(function(k){k.forEach(function(n){caches.delete(n)})});</script></body></html>
+<title>Maa's Dashboard</title><meta name="theme-color" content="#3D1A6E"><link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.ico"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Maa's Dashboard">
+<script>var U='https://script.google.com/macros/s/AKfycbyiM898ljcKjwIUyuZt_1CJHFLo46EU4lrgpaiNkM_n797E3J5hpIJ_-s1JmvDK2FCtOQ/exec';if(matchMedia('(display-mode: standalone)').matches||navigator.standalone)location.replace(U);</script>
+<style>body{margin:0;background:#F3EBDD;color:#3D1A6E;font-family:system-ui,sans-serif;text-align:center;padding:40px 20px}
+img{width:120px;height:120px;border-radius:24px}h1{margin:16px 0}.b{display:inline-block;margin:8px;padding:14px 28px;border-radius:10px;font-size:18px;font-weight:600;text-decoration:none;border:2px solid #3D1A6E;cursor:pointer}
+.p{background:#3D1A6E;color:#fff}.s{background:#fff;color:#3D1A6E}.h{max-width:480px;margin:20px auto;background:#fff;padding:16px;border-radius:10px;text-align:left;font-size:15px}</style></head><body>
+<img src="icon-512.png" alt="Maa's Inspiration logo"><h1>Maa's Dashboard</h1><p>Private dashboard &ndash; sign in with your approved Google account.</p>
+<a class="b p" id="open" href="https://script.google.com/macros/s/AKfycbyiM898ljcKjwIUyuZt_1CJHFLo46EU4lrgpaiNkM_n797E3J5hpIJ_-s1JmvDK2FCtOQ/exec">Open Dashboard</a><button class="b s" id="inst" hidden>Install app</button>
+<div class="h"><b>iPhone / iPad:</b> open in Safari, tap <b>Share</b> &rarr; <b>Add to Home Screen</b>.</div>
+<div class="h"><b>Chrome on computer:</b> if no Install button appears, click the &#8942; menu &rarr; <b>Cast, save, and share</b> &rarr; <b>Install page as app</b> (or <b>Create shortcut&hellip;</b>, tick <b>Open as window</b>).</div>
+<script>if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');var d,b=document.getElementById('inst');
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();d=e;b.hidden=false});
+b.onclick=async()=>{if(!d)return;d.prompt();await d.userChoice;d=null;b.hidden=true};addEventListener('appinstalled',()=>{b.hidden=true})</script></body></html>

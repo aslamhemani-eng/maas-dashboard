@@ -1,0 +1,1 @@
+{"name":"Maa's Dashboard","short_name":"Maa's Dashboard","start_url":"./?source=pwa","scope":"./","display":"standalone","theme_color":"#3D1A6E","background_color":"#F3EBDD","icons":[{"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}
