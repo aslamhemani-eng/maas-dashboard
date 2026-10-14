@@ -222,6 +222,12 @@
    "date": "2026-10-13",
    "what": "Delivery places added to the app: The Bridge, Austin Street Center, street handout + senior home deliveries as counts by area only (97 homes, 141 meals); routes split across sample Volunteer A (Carrollton), B (Dallas) and C (Euless/Irving/Coppell/Lewisville/Plano/Allen)",
    "status": "Done"
+  },
+  {
+   "sec": "opapp",
+   "date": "2026-10-13",
+   "what": "App now calls and texts from Maa's Google Voice (469) 573-4691: Call/Text buttons for Al Markaz, Popeyes (Zul), Chef Chen, drivers and volunteer reminders (vendor numbers still to add privately). Finalize plan and Info Needed updated: Google Voice (free) instead of Twilio; texts need one tap to send",
+   "status": "Done"
   }
  ]
 }
