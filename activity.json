@@ -240,6 +240,12 @@
    "date": "2026-10-13",
    "what": "Delivery routes re-planned into 12 areas, one volunteer each (A: Dallas shelters; B–L: 11 senior areas by ZIP, 97 homes / 141 meals). Address-level stop order kept in a private Google Sheet (Owner/Admin link only)",
    "status": "Done"
+  },
+  {
+   "sec": "outreach",
+   "date": "2026-10-13",
+   "what": "Outreach list built: 32 DFW shelters, senior centers and community groups with public phone, website and who to ask for (Google Sheet)",
+   "status": "Done"
   }
  ]
 }
