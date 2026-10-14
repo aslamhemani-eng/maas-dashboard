@@ -234,6 +234,12 @@
    "date": "2026-10-13",
    "what": "Added Fundraising Kickoff team meeting (Oct 14, led by Naosheen) with a link to the Google Slides deck (Drive access only); name updated to Naosheen across dashboard, ops app and checklist",
    "status": "Done"
+  },
+  {
+   "sec": "opapp",
+   "date": "2026-10-13",
+   "what": "Delivery routes re-planned into 12 areas, one volunteer each (A: Dallas shelters; B–L: 11 senior areas by ZIP, 97 homes / 141 meals). Address-level stop order kept in a private Google Sheet (Owner/Admin link only)",
+   "status": "Done"
   }
  ]
 }
