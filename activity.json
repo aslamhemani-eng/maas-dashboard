@@ -216,6 +216,12 @@
    "date": "2026-10-13",
    "what": "Applied Aslam's latest answers (build: our own web app; stock 24 of each item; Maa's Place shift Mon–Thu 10:30–2 with ~3 volunteers; Star Village shift Mon–Thu 11–2 with 2 volunteers; data in Maa's Google account); program renamed to Star Village; Info Needed list now 5 open items",
    "status": "Done"
+  },
+  {
+   "sec": "opapp",
+   "date": "2026-10-13",
+   "what": "Delivery places added to the app: The Bridge, Austin Street Center, street handout + senior home deliveries as counts by area only (97 homes, 141 meals); routes split across sample Volunteer A (Carrollton), B (Dallas) and C (Euless/Irving/Coppell/Lewisville/Plano/Allen)",
+   "status": "Done"
   }
  ]
 }
